@@ -43,14 +43,16 @@ swordGroup=new Group();
 function draw() {
 
   if(gameState===PLAY){
-  background(100);
+  background(1000);
   boy.x = World.mouseX;
   
   edges= createEdgeSprites();
   boy.collide(edges);
   
   //code to reset the background
-
+  if(path.y > 400 ){
+    path.y = height/2;
+  }
     createCash();
     createDiamonds();
     createJwellery();
@@ -101,7 +103,7 @@ function draw() {
 function createCash() {
   if (World.frameCount % 200 == 0) {
    // Modify the positions of cash 
-    var cash = createSprite(Math.round(random(50, 350),40, 10, 10));
+    var cash = createSprite(Math.round(random(500, 3500),40, 10, 10));
     cash.addImage(cashImg);
   cash.scale=0.12;
   cash.velocityY = 5;
@@ -114,7 +116,7 @@ function createDiamonds() {
   if (World.frameCount % 320 == 0) {
        // Modify the positions of diamonds 
 
-    var diamonds = createSprite(Math.round(random(50, 350),40, 10, 10));
+    var diamonds = createSprite(Math.round(random(500, 3500),40, 10, 10));
     diamonds.addImage(diamondsImg);
   diamonds.scale=0.03;
   diamonds.velocityY = 5;
@@ -140,7 +142,7 @@ function createSword(){
   if (World.frameCount % 530 == 0) {
     //   Modify the positions of sword to make them spawn throughout the available screen size.
 
-    var sword = createSprite(Math.round(random(50, 350),40, 10, 10));
+    var sword = createSprite(Math.round(random(500, 350),40, 10, 10));
     sword.addImage(swordImg);
   sword.scale=0.1;
   sword.velocityY = 4;
